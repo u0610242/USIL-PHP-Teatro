@@ -23,6 +23,7 @@ session_start();
         ?>
         <p><a href="MostrarObras.php">Mostrar Obras</a></p>
         <p><a href="formObras.php">Ingresar Obras		</a></p>
+        <p><a href="../BL/Controladora.php?sesion=off">Cerrar Sesion</a></p>
         
 	  </div>						
 			

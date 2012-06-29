@@ -146,13 +146,18 @@ class Controladora {
         
         if($r>0){
             $string = "location:../PL/Main.php";  
-            
+            session_start();
             $_SESSION['user'] = $correo;
         }else{
             $string = "location:../index.php?ref=2";          
         }
         
         header($string);
+    }
+    public function CerrarSesion(){
+        session_start();
+        session_destroy();
+        header('location:../index.php');
     }
     
 }
@@ -190,5 +195,11 @@ class Controladora {
         $control = new Controladora();
         $control->Login($_POST['user'], $_POST['pass']);
         
+    }
+    if(isset($_GET['sesion'])){
+        if($_GET['sesion']=='off'){
+            $control = new Controladora();
+            $control->CerrarSesion();
+        }
     }
 ?>
